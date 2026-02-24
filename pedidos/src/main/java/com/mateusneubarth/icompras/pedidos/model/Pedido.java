@@ -1,5 +1,6 @@
 package com.mateusneubarth.icompras.pedidos.model;
 
+import com.mateusneubarth.icompras.pedidos.client.representation.ClienteRepresentation;
 import com.mateusneubarth.icompras.pedidos.model.enums.StatusPedido;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -53,4 +54,7 @@ public class Pedido {
 
     @OneToMany(mappedBy = "pedido")
     private List<ItemPedido> itens;
+
+    @Transient
+    private ClienteRepresentation dadosCliente;
 }
