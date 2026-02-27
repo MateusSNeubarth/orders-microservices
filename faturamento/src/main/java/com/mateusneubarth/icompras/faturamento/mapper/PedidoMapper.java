@@ -36,12 +36,13 @@ public class PedidoMapper {
                 .build();
     }
 
-    private ItemPedido mapItem(DetalheItemPedidoRepresentation  detalheItemPedido) {
-        return ItemPedido.builder()
-                .codigo(detalheItemPedido.codigoProduto())
-                .descricao(detalheItemPedido.nome())
-                .valorUnitario(detalheItemPedido.valorUnitario())
-                .quantidade(detalheItemPedido.quantidade())
-                .build();
+    private ItemPedido mapItem(DetalheItemPedidoRepresentation detalheItemPedido) {
+        return new ItemPedido(
+                detalheItemPedido.codigoProduto(),
+                detalheItemPedido.nome(),
+                detalheItemPedido.valorUnitario(),
+                detalheItemPedido.quantidade(),
+                detalheItemPedido.total()
+        );
     }
 }

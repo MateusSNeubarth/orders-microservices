@@ -1,18 +1,18 @@
 package com.mateusneubarth.icompras.faturamento.model;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.Data;
 
 import java.math.BigDecimal;
 
-@Builder
-public record ItemPedido(
-        Long codigo,
-        String descricao,
-        BigDecimal valorUnitario,
-        Integer quantidade
-) {
+@AllArgsConstructor
+@Data
+public class ItemPedido{
 
-    public BigDecimal getTotal() {
-        return this.valorUnitario.multiply(BigDecimal.valueOf((this.quantidade)));
-    }
+    private Long codigo;
+    private String nome;
+    private BigDecimal valorUnitario;
+    private Integer quantidade;
+    private BigDecimal total;
 }
