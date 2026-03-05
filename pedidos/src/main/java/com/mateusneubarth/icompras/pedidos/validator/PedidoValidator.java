@@ -32,6 +32,10 @@ public class PedidoValidator {
             ResponseEntity<ClienteRepresentation> response = clientesClient.obterDados(codigoCliente);
             ClienteRepresentation cliente = response.getBody();
             log.info("Cliente encontrado: {}", cliente);
+
+            if (!cliente.ativo()) {
+                throw new ValidationException("codigoCliente","Cliente Inativo");
+            }
         } catch (FeignException.NotFound e) {
             String message = String.format("Cliente com código %d não encontrado", codigoCliente);
             log.error(message);
@@ -44,6 +48,10 @@ public class PedidoValidator {
             ResponseEntity<ProdutoRepresentation> response = produtosClient.obterDados(item.getCodigoProduto());
             ProdutoRepresentation produto = response.getBody();
             log.info("Produto encontrado: {}", produto);
+
+            if (!produto.ativo()) {
+                throw new ValidationException("codigoProduto","Produto Inativo");
+            }
         } catch (FeignException.NotFound e) {
             String message = String.format("Produto com código %d não encontrado", item.getCodigoProduto());
             log.error(message);

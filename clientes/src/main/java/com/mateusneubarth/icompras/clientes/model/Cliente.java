@@ -31,4 +31,11 @@ public class Cliente {
     private String email;
     @Column(name = "telefone", length = 20)
     private String telefone;
+    @Column(name = "ativo")
+    private boolean ativo;
+
+    @PrePersist
+    public void prePersist() {
+        setAtivo(true);
+    }
 }
