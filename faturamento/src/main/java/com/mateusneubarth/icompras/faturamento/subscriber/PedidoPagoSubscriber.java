@@ -3,6 +3,7 @@ package com.mateusneubarth.icompras.faturamento.subscriber;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.mateusneubarth.icompras.faturamento.mapper.PedidoMapper;
 import com.mateusneubarth.icompras.faturamento.model.Pedido;
+import com.mateusneubarth.icompras.faturamento.service.GeradorNotaFiscalService;
 import com.mateusneubarth.icompras.faturamento.subscriber.representation.DetalhePedidoRepresentation;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

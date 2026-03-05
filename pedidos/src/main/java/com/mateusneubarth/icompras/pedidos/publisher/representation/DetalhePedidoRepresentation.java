@@ -18,6 +18,8 @@ public record DetalhePedidoRepresentation(
         String dataPedido,
         BigDecimal total,
         StatusPedido status,
-        List<DetalheItemPedidoRepresentation> itens
+        List<DetalheItemPedidoRepresentation> itens,
+        String urlNotaFiscal,
+        String codigoRastreio
 ) {
 }
